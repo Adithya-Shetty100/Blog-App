@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %> 
+<div class="ui container first" >
+    <div class="ui container main text raised piled segment">
+        <div class="ui divided items">
+            <% read.forEach(function(r){ %> 
+                <div class="item">
+                    <div class="small  image">
+                        <img src="<%=r.img%>" alt="">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blogs/<%= r._id %> "><%= r.title %></a>
+                        <div class="meta">
+                          <span><%= r.date.toDateString() %> </span>
+                        </div>
+                        <div class="description">
+                            <p style="margin: 10px 0;"><%- (r.desc).substring(0,100) %>... </p>
+                        </div>
+                        <div class="extra" id="change">
+                                    <a id="change" href="/blogs/<%= r._id %> "  class="ui red tiny inverted button" style="padding: 10px;">Read more</a>
+                        </div>
+                    </div>
+                </div>  
+            <% }); %> 
+        </div> 
+    </div>
+</div>    
+<%- include("partials/footer.ejs") %> 

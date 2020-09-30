@@ -1,0 +1,19 @@
+i.bookmark{
+    font-size:2em
+}
+
+.first{
+    margin-top: 6.9rem;
+}
+
+#delete{
+    display: inline;
+}
+
+#change{
+    color:#ff695e ;
+} 
+
+#change:hover{
+    color: #fff;
+}

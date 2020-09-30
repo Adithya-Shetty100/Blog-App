@@ -1,0 +1,52 @@
+<%- include("partials/header.ejs") %> 
+<div class="ui container first">
+    <% blog.like+=2 %> 
+    <div class="ui main text container segment raised">
+        <div class="ui huge header"><%=blog.title  %> </div>
+        <div class="ui top attached segement">
+            <div class="ui items">
+                <div class="meta">
+                    <span><%= blog.date.toDateString() %> </span>
+                </div>
+                <img class="ui centered rounded image" src="<%= blog.img %> " alt="">
+                <div class="description">
+                    <p><%- blog.desc %> </p> 
+                    <!-- this is in html code desc, so convert it to text -->
+                </div>
+            </div> 
+
+            <a href="/blogs/<%= blog._id %>/edit " class="ui  blue large inverted button">
+                Edit
+            </a>
+            <form action="/blogs/<%= blog._id %>?_method=DELETE " method="POST" id="delete">
+                <input type="submit" value="Delete" class="ui red large inverted button">
+            </form>
+
+            <form  style="margin-left: 10px;" action="/blogs/<%= blog._id %>?_method=PUT" method="post" id="delete">
+                <div class="ui labeled button" tabindex="0">
+                    <div class="ui red button click">
+                        <i class="heart icon"></i>
+                        <input type="submit" value="Like">
+                    </div>
+                    <a class="ui basic red left pointing label">
+                        <%= blog.like+2 %> 
+                    </a>
+                  </div>
+            </form>
+            <!-- <button><%= blog.like %> </button> -->
+        </div> 
+    </div>
+</div>
+
+<script>
+    var click=document.querySelector(".click");
+    var point=document.querySelector(".pointing");
+    click.addEventListener("click",()=>{
+       
+        console.log("Clicked button")
+        
+    })
+ 
+</script>
+
+<%- include("partials/footer.ejs") %> 
